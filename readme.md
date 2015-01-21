@@ -76,4 +76,11 @@ Let's now go ahead and patch everything up.
 
 ### Now Let's jump into the code. 
 
+What we are going to make is a simple game that let's us try and match circle sizes for points. We will communicate between arduino and processing using serial communication. 
+
+###What's serial communication? 
+In telecommunication and computer science, serial communication is the process of sending data one bit at a time, sequentially, over a communication channel or computer bus. This is in contrast to parallel communication, where several bits are sent as a whole, on a link with several parallel channels.
+
+Let's write up the arudino code first. 
+
 
