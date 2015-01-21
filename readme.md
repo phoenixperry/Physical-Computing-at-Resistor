@@ -22,7 +22,7 @@ Here's a list of the port numbers on the Teensy. These are the port numbers we w
 ####What's a breadboard? 
 It's a prototyping board that lets you quickly sketch ideas. The way it works is that the power and ground rails, indicated by the +/- are all connected vertically and the rails labeled a-3 are connected horizontally. 
 
-By placing the teensy on the breadboard, you can send data to the computer and from the computer via serial. Serial is just a communication protocol. (This is simplifying things but it's good enough for today! I suggest reading Exploring Arduino for more information on this platform.) 
+By placing the teensy on the breadboard, you can send data to the computer and from the computer via serial. Serial is just a communication protocol where signals arrive in a specific order. (This is simplifying things but it's good enough for today! I suggest reading Exploring Arduino for more information on this platform.) 
 
 You can almost conceptually think of these just like any other ports such as USB. You can plug things like sensors and leds into them and then program them to do things! 
 
@@ -80,6 +80,11 @@ Let's now go ahead and patch everything up.
 
 Let's download the ardunio processing library 
 http://playground.arduino.cc/Interfacing/Processing
+
+We can just follow the steps listed here to get processing setup for Arudino
+
+Note recent working processing code: 
+http://forum.arduino.cc/index.php?topic=122177.0
 
 
 
