@@ -81,6 +81,6 @@ What we are going to make is a simple game that let's us try and match circle si
 ###What's serial communication? 
 In telecommunication and computer science, serial communication is the process of sending data one bit at a time, sequentially, over a communication channel or computer bus. This is in contrast to parallel communication, where several bits are sent as a whole, on a link with several parallel channels.
 
-Let's write up the arudino code first. 
+Let's write up the arudino code first and then the processing code. Both are in this repo. 
 
 
