@@ -1,5 +1,5 @@
 import processing.serial.*;
-import cc.arduino.*;
+
 //get the message coming in from Arduino 
 Serial myPort; 
 
@@ -7,11 +7,15 @@ Serial myPort;
 String val; 
 
 //enemy values 
-float enemyx; 
-float enemyy; 
-float enemyRadius;
-int enemySpeed; 
-int speedLimit;  
+float enemyx; //xpos on screen 
+
+float enemyy; //ypos on screen 
+
+float enemyRadius; // radius of enemy circle 
+
+int enemySpeed;  // how fast the enemy is going 
+
+int speedLimit;  //control game speed. 
 
 //make it so the whole game can change colors 
 color myColor; 
@@ -32,9 +36,11 @@ void setup()
   String portName = Serial.list()[7]; 
   
   myPort = new Serial(this, portName, 9600); 
+  
   size(1024, 768); 
   val = "0";
   //set up an enemy to fall 
+  
   enemyx = random(0+enemyRadius,width-enemyRadius); 
   enemyRadius = random(10,250); 
   enemyy = 0-enemyRadius; 
@@ -47,7 +53,8 @@ void setup()
 }
 
 void draw()
-{  background(0); 
+{  
+    background(0); 
 
     //draw score 
      textFont(f,24);
@@ -58,38 +65,47 @@ void draw()
       
     //check to see if enemy is off screen and if so reset it 
     if(enemyy > height+enemyRadius){
-       fill(random(0,255), 255, random(0,255)); 
-       enemyRadius = random(10,250); 
+      //change the fill color  
+      fill(random(0,255), 255, random(0,255)); 
+      
+      //move the enemey off screen 
       enemyy = 0-enemyRadius; 
       enemyx = random(0+enemyRadius, width-enemyRadius);
+      
       //see if we've hit the speed limit of the game 
        if(enemySpeed >= speedLimit) 
        {
           enemySpeed = speedLimit;  
        }
        else{
-         enemySpeed++; 
+         enemySpeed = enemySpeed +1; 
        }
+       
        //change the game's color for fun!  
        myColor = color(random(0,255), random(0,255), 255); 
       //reset player defaults 
-      playerRadius = 5; 
+    
       //check for score 
       float check  = 0; 
-      
       //check to see if the game is going to get a score or not
       if(playerRadius > enemyRadius)
       {
        check = playerRadius-enemyRadius;  
-      }else
-      {
+      }else{
         check= enemyRadius - playerRadius; 
       }
+      
+      //if the player is within a specific range give them a point  
       println(check);  
+     
       if(check < 100) 
       {
         score++; 
       }
+      
+      //reset the enemy and player radius to default 
+      enemyRadius = random(10,250);
+      playerRadius = 5; 
       
      }
     //draw the player  
