@@ -10,7 +10,7 @@
 // Pin 6  has the LED on Teensy++ 2.0
 // Pin 13 has the LED on Teensy 3.0
 // give it a name:
-int led = 12;
+int led = 10;
 int btn = 13;
 int pressed = 1; 
 
@@ -20,7 +20,7 @@ void setup() {
   // initialize the digital pin as an output.
   pinMode(led, OUTPUT); 
   //when btn is pressed val is 0 and 1 is idle. 
-   pinMode(btn, INPUT_PULLUP);   
+   pinMode(btn, INPUT);   
   
 }
 
@@ -30,9 +30,9 @@ void setup() {
 void loop() {
   
   pressed = digitalRead(btn);
-  
+  //Serial.println(pressed);
   if(pressed==LOW){ 
-    analogWrite(led, 127);
+    analogWrite(led, LOW);
     Serial.write(pressed); 
    delay(100);  
   }   
@@ -40,11 +40,11 @@ void loop() {
   //delay(1000);               // wait for a second
   else{
 
-    analogWrite(led, 0);    // turn the LED off by making the voltage LOW
+    analogWrite(led, HIGH);    // turn the LED off by making the voltage LOW
  // delay(1000); 
     Serial.println(0); 
     delay(100);  
-    Serial.write(pressed);
+    //Serial.write(pressed);
     }
   // wait for a second
 }
